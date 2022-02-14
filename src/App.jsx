@@ -4,7 +4,7 @@ import { List, Image } from "semantic-ui-react";
 
 const App = () => {
   const [employees, setEmployees] = useState([]);
-
+  
   const fetchData = async () => {
     const response = await axios.get("https://reqres.in/api/users");
     setEmployees(response.data.data);

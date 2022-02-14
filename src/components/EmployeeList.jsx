@@ -1,16 +1,19 @@
 import React, { Component } from "react";
-import axios from 'axios'
+import axios from "axios";
 
 class EmployeeList extends Component {
   state = {
-    employees: []
+    employees: [],
   };
-    
-    getEmployees = async () => {
-        let employeeData = await axios.get(
-            'htpps://reqres.in/api/users')
-        this.setState({employees: employeeData.data.data})
-    }
+
+  componentDidMount() {
+    this.getEmployees();
+  }
+
+  getEmployees = async () => {
+    let employeeData = await axios.get("https://reqres.in/api/users");
+    this.setState({ employees: employeeData.data.data });
+  };
 
   render() {
     let employeeList = this.state.employees.map((employee) => {

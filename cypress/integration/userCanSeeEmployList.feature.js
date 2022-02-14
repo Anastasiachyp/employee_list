@@ -3,8 +3,10 @@ describe("User can see application on render", () => {
     cy.visit("/");
   });
 
-  it("is expected to render a list of employees", () => {
-    cy.get("[data-cy=employee-list").children().should("have.lenght", 6);
+  it("display a list with 6 items", () => {
+    cy.get("[data-cy=employee-list")
+      .children()
+      .should("have.length", 6);
   });
 
   it("is expected to include employee name", () => {
